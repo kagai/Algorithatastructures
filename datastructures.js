@@ -16,11 +16,23 @@ LinkedList.prototype.addToHead = function(value){
   if(this.head)this.head.prev = newNode;
   else this.tail = newNode;
   this.head = newNode;
-}
+};
 
-linkedList.prototype.addToTail = function(value){
+LinkedList.prototype.addToTail = function(value){
    let newNode = new Node(value,null,this.tail);
    if(this.tail) this.tail.next = newNode;
    else this.head = newNode;
    this.tail = newNode;
 };
+
+
+LinkedList.prototype.removeHead = function(){
+  if(!this.head ) return null;
+  let val = this.head.value;
+  this.head = this.head.next;
+  if(this.head) this.head.prev = null ;
+  else this.tail = null;
+  return val;
+};
+
+
