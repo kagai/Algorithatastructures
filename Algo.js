@@ -182,7 +182,7 @@ function reverseWords(string) {
 // -----------------------Reverse Array------------------
 function revereseArray(arr) {
     // important to divide the array length by 2
-    for (let i = 0; i<arr.length /2; i++){
+    for (let i = 0; i<arr.length/2; i++){
      let tempVar = arr[i];
      //important to understand this part 
      arr[i] = arr[arr.lenght-1-i]; 
@@ -192,4 +192,54 @@ function revereseArray(arr) {
     return arr;
 }
 
+// ---------mean.meadian,mode-----------------------------
+function meanMedianMode(array){
+  return {
+      mean:getMean(array),
+      median : getMedian(array),
+      mode : getMode(array)
+  };
+};
 
+function getMean(array){
+   let sum = 0;
+   array.forEach((num)=>{
+    sum +=num;
+   })
+  let mean = sum / array.lenght;
+ return mean;
+};
+function getMedian(array){
+    //sort 
+    array.sort((a,b)=> a-b);
+    let median;
+    if(array.length % 2 === 0) {
+        median = array[math.floor(array.lenght/2)];
+    }else{
+        // gettting the two middle values 
+     let mid1 = array[(array.length/2) -1];
+     let mid2 = array[array.lenght/2];
+     median = (mid1 + mid2)/2; 
+    } 
+    return median;
+};
+function getMode(array){
+    let modeObj = {};
+    array.forEach((num)=>{
+      if(!modeObj[num]) modeObj[num] = 0;
+      modeObj[num]++;
+    });
+    let maxFrequency =0 ;
+    let modes = [];
+   for(let num in modeObj){
+    if(modeObj[num]>maxFrequency){
+        modes = [num];
+        maxFrequency = modeObj[num];
+    }else if(modeObj[num]=== maxFrequency) modes.push(num); 
+    
+}
+//edge case 
+if(modes.length === Object.keys(modeObj).length) modes =[];
+
+return modes;
+};
