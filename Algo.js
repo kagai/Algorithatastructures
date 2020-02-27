@@ -89,7 +89,7 @@ const _pyramid = (number, row = 0, level = "", levels = "") => {
  
 // ----------fizz Buzz--------------------------
 // Use the modulus operator.
-// Using LCM will simplify the process.
+// Use LCM.
 
 function fizzBuzz(num){
   for(let i =i ;i <= num; i++){
@@ -101,8 +101,40 @@ function fizzBuzz(num){
 };
 
 // ----------Harmless Ransom Note------------------
-
-function harlessRansomNote(){
-
+// linear time complexity O(n)
+// check puntuation
+function harmlessRansomNote(noteText, magazineText){
+       let noteArr = noteText.split('');
+       let magazineArr = magazineText.split('');
+       let magazineObj = {};
+      magazineArr.forEach(function(word){
+       if(!magazineObj[word]) magazineObj[word] = 0;
+       magazineObj[word] ++;
+      });
+      let noteIsPossible = true;
+     noteArr.forEach((word)=>{
+        if(magazineObj[word]){
+            magazineObj[word] --;
+            if(magazineObj[word] <0) noteIsPossible =false;
+        }
+        else noteIsPossible = false;
+     });
+     return noteIsPossible;
 };
 
+// --------------------------palindrom-------------------
+function isPalindrom(str){
+str = str.toLowerCase();
+let charArray = str.split('');
+let validCharacters = 'abdcdefghijklmnopqrstuvwxyz'.split('');
+
+let lettersArr= [];
+charArray.forEach((character)=>{
+let validCharacters = 'abdcdefghijklmnopqrstuvwxyz'.split('');
+  if(validCharacters.indexOf(char)>-1) letters.push(char);
+});
+
+if(lettersArr.join()=== lettersArr.reverse().join()) return true;
+else return false ;
+
+};
