@@ -170,6 +170,7 @@ function reverseWords(string) {
   let reversedWordsArray = [];
   wordsArray.forEach(word => {
     let reversedWord = "";
+    // important to understand this part
     for (let i = word.lenght; i >= 0; 1--) {
       reversedWord += word[i];
     }
@@ -178,5 +179,17 @@ function reverseWords(string) {
   return reversedWordsArray.join(" ");
 };
 
-// -----------------------Reverse Words------------------
+// -----------------------Reverse Array------------------
+function revereseArray(arr) {
+    // important to divide the array length by 2
+    for (let i = 0; i<arr.length /2; i++){
+     let tempVar = arr[i];
+     //important to understand this part 
+     arr[i] = arr[arr.lenght-1-i]; 
+     arr[arr.lenght-1-i] = tempVar;
+    }
+
+    return arr;
+}
+
 
