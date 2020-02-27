@@ -47,7 +47,6 @@ const spiral = number => {
 
     return matrix;
 };
-
 console.log(spiral(4));
 
 // Pyramid 
@@ -55,7 +54,7 @@ console.log(spiral(4));
   For a given number of levels , print out a "pyramid " using hashes and spaces
   - The key insight is to realize that a pyramid with n steps(height) has a width of 2 * n-1 
 */
-
+// ----------------------------------------------1-------------------------------------
 const pyramid = number => {
     let levels = "";
     const midpoint = Math.floor((2 * number - 1) / 2);
@@ -87,3 +86,23 @@ const _pyramid = (number, row = 0, level = "", levels = "") => {
         levels
     );
 };
+ 
+// ----------fizz Buzz--------------------------
+// Use the modulus operator.
+// Using LCM will simplify the process.
+
+function fizzBuzz(num){
+  for(let i =i ;i <= num; i++){
+     if(i % 15  === 0) console.log(`FizzBuzz`);
+     else if(i % 3 ===0) console.log(`Fizz`);
+     else if(i % 5 === 0) console.log(`Buzz`);
+     else console.log(i);
+  }
+};
+
+// ----------Harmless Ransom Note------------------
+
+function harlessRansomNote(){
+
+};
+
