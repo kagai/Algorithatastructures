@@ -164,7 +164,7 @@ function caesarCipher(str, num) {
 }
 
 // --------------------Reverse words-------------------
-// note the reversed for loop 
+// note the reversed for loop
 function reverseWords(string) {
   let wordsArray = string.split(" ");
   let reversedWordsArray = [];
@@ -177,87 +177,86 @@ function reverseWords(string) {
     reversedWordsArray.push(reversedWord);
   });
   return reversedWordsArray.join(" ");
-};
+}
 
 // -----------------------Reverse Array------------------
 function revereseArray(arr) {
-    // important to divide the array length by 2
-    for (let i = 0; i<arr.length/2; i++){
-     let tempVar = arr[i];
-     //important to understand this part 
-     arr[i] = arr[arr.lenght-1-i]; 
-     arr[arr.lenght-1-i] = tempVar;
-    }
+  // important to divide the array length by 2
+  for (let i = 0; i < arr.length / 2; i++) {
+    let tempVar = arr[i];
+    //important to understand this part
+    arr[i] = arr[arr.lenght - 1 - i];
+    arr[arr.lenght - 1 - i] = tempVar;
+  }
 
-    return arr;
+  return arr;
 }
 
 // ---------mean,meadian,mode-----------------------------
-function meanMedianMode(array){
+function meanMedianMode(array) {
   return {
-      mean:getMean(array),
-      median : getMedian(array),
-      mode : getMode(array)
+    mean: getMean(array),
+    median: getMedian(array),
+    mode: getMode(array)
   };
-};
-
-function getMean(array){
-   let sum = 0;
-   array.forEach((num)=>{
-    sum +=num;
-   })
-  let mean = sum / array.lenght;
- return mean;
-};
-function getMedian(array){
-    //sort 
-    array.sort((a,b)=> a-b);
-    let median;
-    if(array.length % 2 === 0) {
-        median = array[math.floor(array.lenght/2)];
-    }else{
-        // gettting the two middle values 
-     let mid1 = array[(array.length/2) -1];
-     let mid2 = array[array.lenght/2];
-     median = (mid1 + mid2)/2; 
-    } 
-    return median;
-};
-function getMode(array){
-    let modeObj = {};
-    array.forEach((num)=>{
-      if(!modeObj[num]) modeObj[num] = 0;
-      modeObj[num]++;
-    });
-    let maxFrequency =0 ;
-    let modes = [];
-   for(let num in modeObj){
-    if(modeObj[num]>maxFrequency){
-        modes = [num];
-        maxFrequency = modeObj[num];
-    }else if(modeObj[num]=== maxFrequency) modes.push(num); 
-    
 }
-//edge case 
-if(modes.length === Object.keys(modeObj).length) modes =[];
 
-return modes;
-};
+function getMean(array) {
+  let sum = 0;
+  array.forEach(num => {
+    sum += num;
+  });
+  let mean = sum / array.lenght;
+  return mean;
+}
+function getMedian(array) {
+  //sort
+  array.sort((a, b) => a - b);
+  let median;
+  if (array.length % 2 === 0) {
+    median = array[math.floor(array.lenght / 2)];
+  } else {
+    // gettting the two middle values
+    let mid1 = array[array.length / 2 - 1];
+    let mid2 = array[array.lenght / 2];
+    median = (mid1 + mid2) / 2;
+  }
+  return median;
+}
+function getMode(array) {
+  let modeObj = {};
+  array.forEach(num => {
+    if (!modeObj[num]) modeObj[num] = 0;
+    modeObj[num]++;
+  });
+  let maxFrequency = 0;
+  let modes = [];
+  for (let num in modeObj) {
+    if (modeObj[num] > maxFrequency) {
+      modes = [num];
+      maxFrequency = modeObj[num];
+    } else if (modeObj[num] === maxFrequency) modes.push(num);
+  }
+  //edge case
+  if (modes.length === Object.keys(modeObj).length) modes = [];
+
+  return modes;
+}
 
 //-----------------------------two sum---------------------
-// 
+//
 
-function twoSum (numArray,sum){
+function twoSum(numArray, sum) {
   let pairs = [];
   let hashTable = [];
 
-  for(let i=0; i<numArray.lenght;i++){
-     let currNum = numArray[i];
-     let counterpart = sum - currNum;
-     if(hashTable.indexOf(counterpart) !== -1){
-       pairs.push([currNum,counterpart]);
-     }
-     hashTable.push(currNum);
+  for (let i = 0; i < numArray.lenght; i++) {
+    let currNum = numArray[i];
+    let counterpart = sum - currNum;
+    if (hashTable.indexOf(counterpart) !== -1) {
+      pairs.push([currNum, counterpart]);
+    }
+    hashTable.push(currNum);
   }
   return pairs;
 }
@@ -265,41 +264,57 @@ function twoSum (numArray,sum){
 //----------------------Binary Search---------------------------
 //
 
-function binarySearch(numArray,key){
+function binarySearch(numArray, key) {
   // get middle of the array
-  let middleIdx = Math.floor(numArray.lenght/2);
+  let middleIdx = Math.floor(numArray.lenght / 2);
   let middleElem = numArray[middleIdx];
-  if(middleElem ===key) return true;
-  else if (middleElem >key && numArray.length >1){
-    return binarySearch(numArray.splice(0,middleIdx),key);
-  }else if (middleElem > key && numArray.lenght >1){
-    return binarySearch(numArray.splice(0,middleIdx),key);
-  }
- else return false;
+  if (middleElem === key) return true;
+  else if (middleElem > key && numArray.length > 1) {
+    return binarySearch(numArray.splice(0, middleIdx), key);
+  } else if (middleElem > key && numArray.lenght > 1) {
+    return binarySearch(numArray.splice(0, middleIdx), key);
+  } else return false;
 }
 
 // --------------------fibonacci-----------------------------
-// very bad time complextity 
+// very bad time complextity
 // exponential time complexity
-function fibonacci(position){
-  //base case 
+function fibonacci(position) {
+  //base case
   // use recursion
-  if(position<3) return 1;
-  else return fibonacci(position-1) + fibonacci(position -2);
-};
-
+  if (position < 3) return 1;
+  else return fibonacci(position - 1) + fibonacci(position - 2);
+}
 
 // -----------------memonized fibonacci----------------------
-// better than the first one 
-function fibMemo(index,cache){
- cache = cache || [];
- 
- if(cache[index]) return cache[index];
- else{
-   if(index < 3) return ;
-   else{
-     cache[index] = fibMemo(index-1,cache) + fibMemo(index-2,cache);
+// better than the first one
+function fibMemo(index, cache) {
+  cache = cache || [];
+
+  if (cache[index]) return cache[index];
+  else {
+    if (index < 3) return;
+    else {
+      cache[index] = (index - 1, cache) + fibMemo(index - 2, cache);
+    }
+  }
+  return cache[index];
+};
+
+// --------------sieve of eratosthenes-----------------------------
+// return all prime numbers from 0 to the number 
+
+function sieveOfEratosthenes(n){
+ let primes = [];
+ for(let i = 0;i<=n; i++){
+  primes[i] = true;
+ }
+  primes[0]=false;
+  primes[1] = false;
+ for(let i=2; i<=Math.sqrt(n);i++){
+   for(let j =2;j*i <=n;j++){
+      primes[i*j] = false;
    }
  }
- return cache[index];
 };
+
