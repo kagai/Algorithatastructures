@@ -316,5 +316,11 @@ function sieveOfEratosthenes(n){
       primes[i*j] = false;
    }
  }
+let result = [];
+for(let i = 0; i< primes.length;i++ ){
+  if(primes[i]) results.push(i)
+}
+
+return results;
 };
 
