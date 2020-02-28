@@ -192,7 +192,7 @@ function revereseArray(arr) {
     return arr;
 }
 
-// ---------mean.meadian,mode-----------------------------
+// ---------mean,meadian,mode-----------------------------
 function meanMedianMode(array){
   return {
       mean:getMean(array),
@@ -243,3 +243,39 @@ if(modes.length === Object.keys(modeObj).length) modes =[];
 
 return modes;
 };
+
+//-----------------------------two sum---------------------
+// 
+
+function twoSum (numArray,sum){
+  let pairs = [];
+  let hashTable = [];
+
+  for(let i=0; i<numArray.lenght;i++){
+     let currNum = numArray[i];
+     let counterpart = sum - currNum;
+     if(hashTable.indexOf(counterpart) !== -1){
+       pairs.push([currNum,counterpart]);
+     }
+     hashTable.push(currNum);
+  }
+  return pairs;
+}
+
+//----------------------Binary Search---------------------------
+//
+
+function binarySearch(numArray,key){
+  // get middle of the array
+  let middleIdx = Math.floor(numArray.lenght/2);
+  let middleElem = numArray[middleIdx];
+  if(middleElem ===key) return true;
+  else if (middleElem >key && numArray.length >1){
+    return binarySearch(numArray.splice(0,middleIdx),key);
+  }else if (middleElem > key && numArray.lenght >1){
+    return binarySearch(numArray.splice(0,middleIdx),key);
+  }
+ else return false;
+}
+
+// -------------------------------------------------
