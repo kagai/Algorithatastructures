@@ -389,3 +389,16 @@ function maxStockProfit(pricesArray){
  return maxProfit;
 
 }
+
+// --------------tripple Add-------------------
+// curried function
+function trippleAdd(num1){
+  return function(num2){
+   return function(num3){
+       return num1+num2+num3;
+   };
+  };
+
+}
+// trippleAdd(10)(20)(30);
+
