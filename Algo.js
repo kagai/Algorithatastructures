@@ -364,3 +364,28 @@ function merge (array1, array2) {
   return result;
 }
 
+// ----------------------Max Profit---------------------
+// 0{n}
+// look for the optimal buy price and optimal selling prie
+function maxStockProfit(pricesArray){
+  let maxProfit = -1;
+  let buyPrice = 0;
+  let sellPrice = 0;
+
+  let changedBuyPrice = true;
+
+  for(let i =0; i<pricesArray.length; i++){
+    if(changedBuyPrice) buyPrice = pricesArray[i];
+    sellPrice = pricesArray[i+1];
+    if(sellPrice < buyPrice){
+      changedBuyPrice = true;
+    }else {
+      let tempProfit = sellPrice -buyPrice;
+      if(tempProfit > maxProfit) maxProfit = tempProfit;
+      changedBuyPrice = false ;
+    }
+
+  }
+ return maxProfit;
+
+}
